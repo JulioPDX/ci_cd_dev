@@ -3,7 +3,7 @@ type: docker
 name: Testing Python
 
 steps:
-- name: test
+- name: test installs
   image: python
   environment:
     HELLO:
@@ -11,6 +11,11 @@ steps:
   commands:
   - pip install -r requirements.txt
   - python3 hello.py
+
+- name: test installs
+  image: python
+  commands:
+  - python3 -m rich
 
 trigger:
   branch:
