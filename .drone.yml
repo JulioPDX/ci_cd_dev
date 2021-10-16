@@ -6,12 +6,11 @@ steps:
 - name: test installs
   image: python
   environment:
-    HELLO:
-      from_secret: test_secret
+    MY_PASS:
+      from_secret: MY_PASS
   commands:
   - pip3 install -r requirements.txt
   - python3 hello.py
-  - python3 -m rich
 
 trigger:
   branch:
