@@ -1,7 +1,6 @@
 wheel
-nornir
-napalm
 netmiko
 rich
 black
 pytest
+pylint
