@@ -14,7 +14,7 @@ steps:
       from_secret: MY_PASS
   commands:
   - pip3 install -r requirements.txt
-  - black .
+  - "black ."
   - pylint hello.py
   - python3 hello.py
 
