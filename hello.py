@@ -1,4 +1,4 @@
 import os
 from rich import print
 
-print(os.environgetenv("HELLO", "value does not exist"))
+print(os.getenv("HELLO", "value does not exist"))
