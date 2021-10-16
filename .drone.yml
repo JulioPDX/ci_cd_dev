@@ -6,7 +6,10 @@ steps:
 - name: en
   image: alpine
   commands:
-  - echo hello world
+  - echo $HELLO
+  environment:
+    HELLO:
+      from_secret: test_secret
 
 - name: fr
   image: alpine
