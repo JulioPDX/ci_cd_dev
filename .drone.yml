@@ -9,9 +9,9 @@ environment:
 steps:
 - name: Install and deploy
   image: python
-  environment:
-    MY_PASS:
-      from_secret: MY_PASS
+  # environment:
+  #   MY_PASS:
+  #     from_secret: MY_PASS
   commands:
   - pip3 install -r requirements.txt
   - "black ."
