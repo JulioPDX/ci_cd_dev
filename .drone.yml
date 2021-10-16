@@ -12,3 +12,9 @@ steps:
   image: alpine
   commands:
   - echo bonjour monde
+
+trigger:
+  branch:
+    exclide:
+    - main
+    - master
