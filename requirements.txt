@@ -3,3 +3,5 @@ nornir
 napalm
 netmiko
 rich
+black
+pytest

@@ -10,6 +10,7 @@ steps:
       from_secret: test_secret
   commands:
   - pip install -r requirements.txt
+  - python3 hello.py
 
 trigger:
   branch:
