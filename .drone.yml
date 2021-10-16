@@ -5,11 +5,11 @@ name: greeting
 steps:
 - name: en
   image: alpine
-  commands:
-  - echo $HELLO
   environment:
     HELLO:
       from_secret: test_secret
+  commands:
+  - echo $HELLO
 
 - name: fr
   image: alpine
