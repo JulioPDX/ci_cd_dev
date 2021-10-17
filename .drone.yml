@@ -1,23 +1,18 @@
 kind: pipeline
-type: exec
+type: docker
 name: Testing Python CI/CD
 
-platform:
-  os: linux
-  arch: amd64
 
 steps:
-- name: Install dependencies and check standards
-  commands:
-  - pip3 install -r requirements.txt
-  - "black ."
-  - pylint hello.py
-
-- name: Execute script for backup
+- name: Install and deploy
+  image: python
   environment:
     MY_PASS:
       from_secret: MY_PASS
   commands:
+  - pip3 install -r requirements.txt
+  - "black ."
+  - pylint hello.py
   - python3 hello.py
 
 trigger:
