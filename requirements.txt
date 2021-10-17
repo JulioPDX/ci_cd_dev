@@ -4,3 +4,5 @@ rich
 black
 pytest
 pylint
+pybatfish
+napalm
