@@ -1,15 +1,7 @@
-"""Simple script used for testing deployments"""
+"""Simple script used for backups"""
 import os
 import re
 import napalm
-import pandas as pd
-from rich import print as rprint
-from pybatfish.client.commands import *
-from pybatfish.datamodel import *
-from pybatfish.datamodel.answer import *
-from pybatfish.datamodel.flow import *
-from pybatfish.question import *
-from pybatfish.question import bfq
 
 
 PASS = os.getenv("MY_PASS")
