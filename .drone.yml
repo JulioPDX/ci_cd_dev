@@ -5,12 +5,12 @@ name: Testing Python CI/CD
 
 steps:
 - name: Install and deploy
-  image: python
+  image: juliopdx/netauto
   environment:
     MY_PASS:
       from_secret: MY_PASS
   commands:
-  - pip3 install -r requirements.txt
+  # - pip3 install -r requirements.txt
   - python3 bat.py
 
 trigger:
