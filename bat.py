@@ -16,5 +16,5 @@ bf_set_network(NETWORK_NAME)
 bf_init_snapshot(SNAPSHOT_DIR, name=SNAPSHOT_NAME, overwrite=True)
 load_questions()
 
-bgp_sess_status = bfq.bgpSessionCompatibility().answer().frame()
+bgp_sess_status = bfq.bgpSessionStatus().answer().frame()
 rprint(bgp_sess_status)
