@@ -35,14 +35,9 @@ for device in devices:
     config = temp_device.get_config(retrieve="running")
     run_conf = config["running"]
 
-    # erase lines with "Building configuration", "Current Configuration" and "end"
-    run_config = re.sub(
-        r"Building configuration.*|Current configuration.*|end", "", run_conf
-    )
-
     ### create file with running config in backup_config folder
     with open(
         f"./snapshots/configs/{device['hostname']}.txt", "w", encoding="utf-8"
     ) as file:
-        file.write(run_config)
+        file.write(run_conf)
     temp_device.close()
