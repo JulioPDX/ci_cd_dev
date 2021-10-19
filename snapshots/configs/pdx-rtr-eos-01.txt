@@ -1,11 +1,11 @@
 ! Command: show running-config
-! device: pdx-rtr-veos-01 (vEOS, EOS-4.24.0F)
+! device: pdx-rtr-eos-01 (vEOS, EOS-4.24.0F)
 !
 ! boot system flash:/vEOS-lab.swi
 !
 transceiver qsfp default-mode 4x10G
 !
-hostname pdx-rtr-veos-01
+hostname pdx-rtr-eos-01
 !
 spanning-tree mode mstp
 !

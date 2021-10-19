@@ -1,0 +1,20 @@
+---
+pdx-rtr-eos-01:
+  hostname: 192.168.10.151
+  groups:
+    - eos
+
+pdx-rtr-eos-02:
+  hostname: 192.168.10.185
+  groups:
+    - eos
+
+pdx-rtr-eos-03:
+  hostname: 192.168.10.186
+  groups:
+    - eos
+
+pdx-rtr-eos-04:
+  hostname: 192.168.10.188
+  groups:
+    - eos

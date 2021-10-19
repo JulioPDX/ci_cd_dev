@@ -1,0 +1,28 @@
+"""Script used to configure the network"""
+from rich import print as rprint
+from nornir import InitNornir
+from nornir_napalm.plugins.tasks import napalm_configure
+from nornir_utils.plugins.functions import print_result
+from tools import nornir_set_creds
+
+
+def deploy_network(task):
+    """Configures network with NAPALM"""
+    task1_result = task.run(
+        name=f"Configuring {task.host.name}!",
+        task=napalm_configure,
+        filename=f"./snapshots/configs/{task.host.name}.txt",
+        replace=True,
+    )
+
+
+def main():
+    """Used to run all the things"""
+    norn = InitNornir(config_file="configs/config.yaml")
+    nornir_set_creds(norn)
+    result = norn.run(task=deploy_network)
+    print_result(result)
+
+
+if __name__ == "__main__":
+    main()

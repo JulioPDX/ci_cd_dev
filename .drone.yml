@@ -6,15 +6,17 @@ name: Testing Python CI/CD
 steps:
 - name: Test OSPF and BGP
   image: juliopdx/netauto
+  commands:
+  - pytest test.py --disable-pytest-warnings -s
+
+- name: Deploy Configurations
+  image: juliopdx/netauto
   environment:
     MY_PASS:
       from_secret: MY_PASS
   commands:
-  # - pip3 install -r requirements.txt
-  - pytest test.py --disable-pytest-warnings -s
-
-trigger:
-  branch:
-    exclude:
-    - main
+  - python build.py
+  when:
+    branch:
     - master
+    - main

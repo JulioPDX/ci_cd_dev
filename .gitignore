@@ -2,3 +2,4 @@ venv
 __pycache
 .pytest_cache
 *.pyc
+nornir.log

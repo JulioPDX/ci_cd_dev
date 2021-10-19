@@ -8,30 +8,30 @@ PASS = os.getenv("MY_PASS")
 
 devices = [
     {
-        "hostname": "pdx-rtr-vios-04",
-        "device_type": "ios",
-        "host": "192.168.10.122",
-        "username": "admin",
-        "password": PASS,
-    },
-    {
-        "hostname": "pdx-rtr-veos-01",
+        "hostname": "pdx-rtr-eos-01",
         "device_type": "eos",
         "host": "192.168.10.151",
         "username": "admin",
         "password": PASS,
     },
     {
-        "hostname": "pdx-rtr-veos-02",
+        "hostname": "pdx-rtr-eos-02",
         "device_type": "eos",
         "host": "192.168.10.185",
         "username": "admin",
         "password": PASS,
     },
     {
-        "hostname": "pdx-rtr-veos-03",
+        "hostname": "pdx-rtr-eos-03",
         "device_type": "eos",
         "host": "192.168.10.186",
+        "username": "admin",
+        "password": PASS,
+    },
+    {
+        "hostname": "pdx-rtr-eos-04",
+        "device_type": "eos",
+        "host": "192.168.10.188",
         "username": "admin",
         "password": PASS,
     },
