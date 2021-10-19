@@ -15,7 +15,7 @@ def test_bgp_status():
         .answer()
         .frame()
         .query("Established_Status != 'ESTABLISHED'")
-        .empty, bfq.bgpSessionStatus().answer().frame()
+        .empty
     )
 
 
