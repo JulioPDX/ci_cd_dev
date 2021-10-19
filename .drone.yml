@@ -4,14 +4,14 @@ name: Testing Python CI/CD
 
 
 steps:
-- name: Install and deploy
+- name: Test OSPF and BGP
   image: juliopdx/netauto
   environment:
     MY_PASS:
       from_secret: MY_PASS
   commands:
   # - pip3 install -r requirements.txt
-  - python3 bat.py
+  - pytest test.py --disable-pytest-warnings
 
 trigger:
   branch:

@@ -11,7 +11,6 @@ spanning-tree mode mstp
 !
 aaa authorization exec default local
 !
-enable password sha512 $6$I8/lieVPSGKeVFlc$rvzw.WUMrSdDVxJzVUdbBq1iDYqh.9ckYJLoUk3FRLg8ohgbSpIoxIe.NnUaNZRNBYfiG.gK.1UCYCeR/kRsh1
 no aaa root
 !
 username admin privilege 15 role network-admin secret sha512 $6$D8ETPL1XTQqA8xWt$aptkRzweFEnvCk5IQQZ9Cd66F49q5Vh4W2pWHTsDLlVSSokroBFznmDzHWB2aaDWsbn36XUoQ8GiUBDEshDNW0
@@ -20,9 +19,14 @@ vrf instance MGMT
 !
 interface Ethernet1
    no switchport
-   ip address 10.0.0.2/24
+   ip address 10.0.12.1/24
+   ip ospf network point-to-point
+   ip ospf area 0.0.0.0
 !
 interface Ethernet2
+   no switchport
+   ip address 192.168.1.1/24
+   ip ospf area 0.0.0.0
 !
 interface Ethernet3
 !
@@ -36,23 +40,29 @@ interface Ethernet7
 !
 interface Ethernet8
 !
-interface Loopback0
-   ip address 192.168.2.1/24
+interface Loopback1
+   ip address 10.0.0.1/32
+   ip ospf area 0.0.0.0
 !
 interface Management1
    vrf MGMT
    ip address dhcp
 !
 ip routing
-ip routing vrf MGMT
+no ip routing vrf MGMT
 !
-ip route vrf MGMT 0.0.0.0/0 192.168.10.1
+router bgp 65001
+   router-id 10.0.0.1
+   neighbor 10.0.0.4 remote-as 65004
+   neighbor 10.0.0.4 update-source Loopback1
+   neighbor 10.0.0.4 ebgp-multihop 3
+   neighbor 10.0.0.4 maximum-routes 12000
 !
-router bgp 65002
-   router-id 2.2.2.2
-   neighbor 10.0.0.3 remote-as 65003
-   neighbor 10.0.0.3 maximum-routes 12000
-   network 192.168.2.0/24
+router ospf 1
+   router-id 1.1.1.1
+   passive-interface Ethernet2
+   passive-interface Loopback1
+   max-lsa 12000
 !
 management api http-commands
    no shutdown

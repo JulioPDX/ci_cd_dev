@@ -1,0 +1,59 @@
+! Command: show running-config
+! device: pdx-rtr-eos-03 (vEOS, EOS-4.24.0F)
+!
+! boot system flash:/vEOS-lab.swi
+!
+transceiver qsfp default-mode 4x10G
+!
+hostname pdx-rtr-eos-03
+!
+spanning-tree mode mstp
+!
+no aaa root
+!
+username admin privilege 15 role network-admin secret sha512 $6$Q.SKRhBJQFtTUjJb$KKm.9CFQgE4pSP4gED96NKCBOn1nr8.tAdX0ZLYMWhPFYjrLmOl.GvBjALlAcFShbG2nIFf/OlftuPoYOOC5.1
+!
+vrf instance MGMT
+!
+interface Ethernet1
+   no switchport
+   ip address 10.0.34.3/24
+   ip ospf network point-to-point
+   ip ospf area 0.0.0.0
+!
+interface Ethernet2
+   no switchport
+   ip address 10.0.23.3/24
+   ip ospf network point-to-point
+   ip ospf area 0.0.0.0
+!
+interface Ethernet3
+!
+interface Ethernet4
+!
+interface Ethernet5
+!
+interface Ethernet6
+!
+interface Ethernet7
+!
+interface Ethernet8
+!
+interface Management1
+   vrf MGMT
+   ip address dhcp
+!
+ip routing
+no ip routing vrf MGMT
+!
+router ospf 1
+   router-id 10.0.0.3
+   max-lsa 12000
+!
+management api http-commands
+   no shutdown
+   !
+   vrf MGMT
+      no shutdown
+!
+end

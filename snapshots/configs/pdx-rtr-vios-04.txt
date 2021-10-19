@@ -1,13 +1,15 @@
 !
+
+!
 version 15.8
 service timestamps debug datetime msec
 service timestamps log datetime msec
 no service password-encryption
 !
-hostname pdx-rtr-vios-01
+hostname pdx-rtr-vios-04
 !
 boot-start-marker
-boot--marker
+boot-end-marker
 !
 !
 vrf definition MGMT
@@ -65,18 +67,21 @@ lldp run
 !
 !
 !
-interface Loopback0
- ip address 192.168.3.1 255.255.255.0
+interface Loopback1
+ ip address 10.0.0.4 255.255.255.255
+ ip ospf 1 area 0
 !
 interface GigabitEthernet0/0
- ip address 10.0.0.3 255.255.255.0
+ ip address 10.0.34.4 255.255.255.0
+ ip ospf network point-to-point
+ ip ospf 1 area 0
  duplex auto
  speed auto
  media-type rj45
 !
 interface GigabitEthernet0/1
- no ip address
- shutdown
+ ip address 192.168.4.1 255.255.255.0
+ ip ospf 1 area 0
  duplex auto
  speed auto
  media-type rj45
@@ -95,11 +100,17 @@ interface GigabitEthernet0/3
  speed auto
  media-type rj45
 !
-router bgp 65003
- bgp router-id 3.3.3.3
+router ospf 1
+ router-id 10.0.0.4
+ passive-interface GigabitEthernet0/1
+ passive-interface Loopback1
+!
+router bgp 65004
+ bgp router-id 10.0.0.4
  bgp log-neighbor-changes
- network 192.168.3.0
- neighbor 10.0.0.2 remote-as 65001
+ neighbor 10.0.0.1 remote-as 65001
+ neighbor 10.0.0.1 ebgp-multihop 3
+ neighbor 10.0.0.1 update-source Loopback1
 !
 ip forward-protocol nd
 !
@@ -153,3 +164,4 @@ line vty 0 4
 !
 no scheduler allocate
 !
+end
