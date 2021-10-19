@@ -11,7 +11,7 @@ steps:
       from_secret: MY_PASS
   commands:
   # - pip3 install -r requirements.txt
-  - pytest test.py --disable-pytest-warnings
+  - pytest test.py --disable-pytest-warnings -s
 
 trigger:
   branch:

@@ -9,17 +9,19 @@ from rich import print as rprint
 
 def test_bgp_status():
     """Checking BGP status"""
+    rprint(bfq.bgpSessionStatus().answer().frame())
     assert (
         bfq.bgpSessionStatus()
         .answer()
         .frame()
         .query("Established_Status != 'ESTABLISHED'")
-        .empty
+        .empty, bfq.bgpSessionStatus().answer().frame()
     )
 
 
 def test_ospf_status():
     """Checking OSPF status"""
+    rprint(bfq.ospfSessionCompatibility().answer().frame())
     assert (
         bfq.ospfSessionCompatibility()
         .answer()
