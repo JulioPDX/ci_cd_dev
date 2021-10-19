@@ -40,4 +40,5 @@ def init_bf():
     bf_init_snapshot(SNAPSHOT_DIR, name=SNAPSHOT_NAME, overwrite=True)
     load_questions()
 
+
 init_bf()
