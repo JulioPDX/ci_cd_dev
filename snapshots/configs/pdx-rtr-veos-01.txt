@@ -53,7 +53,7 @@ no ip routing vrf MGMT
 !
 router bgp 65001
    router-id 10.0.0.1
-   neighbor 10.0.0.4 remote-as 65003
+   neighbor 10.0.0.4 remote-as 65004
    neighbor 10.0.0.4 update-source Loopback1
    neighbor 10.0.0.4 ebgp-multihop 3
    neighbor 10.0.0.4 maximum-routes 12000
