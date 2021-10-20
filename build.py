@@ -15,8 +15,6 @@ def deploy_network(task):
         filename=f"./snapshots/configs/{task.host.name}.txt",
         replace=True,
     )
-    rprint(task1_result)
-    inspect(task1_result)
 
 
 def main():
