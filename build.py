@@ -9,7 +9,8 @@ from tools import nornir_set_creds
 
 def deploy_network(task):
     """Configures network with NAPALM and retrives backup for comparison"""
-    task1_result = task.run(name=f"Configuring {task.host.name}!",
+    task1_result = task.run(
+        name=f"Configuring {task.host.name}!",
         task=napalm_configure,
         filename=f"./snapshots/configs/{task.host.name}.txt",
         replace=True,
