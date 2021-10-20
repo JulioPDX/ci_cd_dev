@@ -4,6 +4,11 @@ name: Testing Python CI/CD
 
 
 steps:
+- name: Black Code Format Check
+  image: juliopdx/netauto
+  commands:
+  - black . --check
+
 - name: Precheck OSPF and BGP
   image: juliopdx/netauto
   commands:
