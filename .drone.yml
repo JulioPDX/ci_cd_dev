@@ -4,7 +4,7 @@ name: Testing Python CI/CD
 
 
 steps:
-- name: Test OSPF and BGP
+- name: Precheck OSPF and BGP
   image: juliopdx/netauto
   commands:
   - pytest test.py --disable-pytest-warnings -s

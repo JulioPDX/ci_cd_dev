@@ -1,5 +1,6 @@
 """Script used to configure the network"""
 from rich import print as rprint
+from rich import inspect
 from nornir import InitNornir
 from nornir_napalm.plugins.tasks import napalm_configure
 from nornir_utils.plugins.functions import print_result
@@ -7,13 +8,15 @@ from tools import nornir_set_creds
 
 
 def deploy_network(task):
-    """Configures network with NAPALM"""
+    """Configures network with NAPALM and retrives backup for comparison"""
     task1_result = task.run(
         name=f"Configuring {task.host.name}!",
         task=napalm_configure,
         filename=f"./snapshots/configs/{task.host.name}.txt",
         replace=True,
     )
+    rprint(task1_result)
+    inspect(task1_result)
 
 
 def main():
