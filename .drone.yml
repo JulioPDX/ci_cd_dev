@@ -4,7 +4,12 @@ name: Testing Python CI/CD
 
 
 steps:
-- name: Test OSPF and BGP
+- name: Black Code Format Check
+  image: juliopdx/netauto
+  commands:
+  - black . --check
+
+- name: Precheck OSPF and BGP
   image: juliopdx/netauto
   commands:
   - pytest test.py --disable-pytest-warnings -s
@@ -20,3 +25,8 @@ steps:
     branch:
     - master
     - main
+
+trigger:
+  event:
+    exclude:
+    - pull_request
