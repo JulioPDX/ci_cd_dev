@@ -25,3 +25,8 @@ steps:
     branch:
     - master
     - main
+
+trigger:
+  event:
+    exclude:
+    - pull_request
