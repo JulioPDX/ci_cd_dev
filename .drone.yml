@@ -14,6 +14,11 @@ steps:
   commands:
   - pytest test.py --disable-pytest-warnings -s
 
+- name: Precheck Configuration Diff
+  image: juliopdx/netauto
+  commands:
+  - python build.py
+
 - name: Deploy Configurations
   image: juliopdx/netauto
   environment:
