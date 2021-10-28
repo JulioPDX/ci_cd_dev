@@ -21,7 +21,7 @@ def deploy_network(task):
 def main():
     """Used to run all the things"""
     norn = InitNornir(config_file="configs/config.yaml")
-    nornir_set_creds(norn, username="admin")
+    nornir_set_creds(norn)
     result = norn.run(task=deploy_network)
     print_result(result)
 

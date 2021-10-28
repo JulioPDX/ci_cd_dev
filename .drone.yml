@@ -22,8 +22,8 @@ steps:
 - name: Deploy Configurations
   image: juliopdx/netauto
   environment:
-    MY_PASS:
-      from_secret: MY_PASS
+    MY_SECRET:
+      from_secret: MY_SECRET
   commands:
   - python build.py
   when:
