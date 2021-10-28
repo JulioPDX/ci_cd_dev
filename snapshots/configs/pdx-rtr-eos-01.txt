@@ -1,21 +1,27 @@
 ! Command: show running-config
-! device: pdx-rtr-eos-01 (vEOS, EOS-4.24.0F)
+! device: pdx-rtr-eos-01 (vEOS-lab, EOS-4.27.0F)
 !
 ! boot system flash:/vEOS-lab.swi
 !
+no aaa root
+!
+username admin privilege 15 role network-admin secret sha512 $6$rrKbLqxCZPj90dQ9$KphrLiR43VJMZtyo7e.o6ZdjNKClXMJ4gGdck.S6bbcu6svj/vcKoGuC/fPTbt5gkSugYumPY47O5yMc6d7sc/
+!
 transceiver qsfp default-mode 4x10G
+!
+service routing protocols model ribd
 !
 hostname pdx-rtr-eos-01
 !
 spanning-tree mode mstp
 !
-aaa authorization exec default local
-!
-no aaa root
-!
-username admin privilege 15 role network-admin secret sha512 $6$D8ETPL1XTQqA8xWt$aptkRzweFEnvCk5IQQZ9Cd66F49q5Vh4W2pWHTsDLlVSSokroBFznmDzHWB2aaDWsbn36XUoQ8GiUBDEshDNW0
-!
 vrf instance MGMT
+!
+management api http-commands
+   no shutdown
+   !
+   vrf MGMT
+      no shutdown
 !
 interface Ethernet1
    no switchport
@@ -46,28 +52,23 @@ interface Loopback1
 !
 interface Management1
    vrf MGMT
-   ip address dhcp
+   ip address 192.168.10.121/24
 !
 ip routing
 no ip routing vrf MGMT
+!
+ip route vrf MGMT 0.0.0.0/0 192.168.10.1
 !
 router bgp 65001
    router-id 10.0.0.1
    neighbor 10.0.0.4 remote-as 65004
    neighbor 10.0.0.4 update-source Loopback1
    neighbor 10.0.0.4 ebgp-multihop 3
-   neighbor 10.0.0.4 maximum-routes 12000
 !
 router ospf 1
    router-id 1.1.1.1
    passive-interface Ethernet2
    passive-interface Loopback1
    max-lsa 12000
-!
-management api http-commands
-   no shutdown
-   !
-   vrf MGMT
-      no shutdown
 !
 end

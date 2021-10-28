@@ -1,19 +1,27 @@
 ! Command: show running-config
-! device: pdx-rtr-eos-02 (vEOS, EOS-4.24.0F)
+! device: pdx-rtr-eos-02 (vEOS-lab, EOS-4.27.0F)
 !
 ! boot system flash:/vEOS-lab.swi
 !
+no aaa root
+!
+username admin privilege 15 role network-admin secret sha512 $6$Kl2aP7aosClWdG9S$2CS1H8LQoedChmX5TtFx0VBkFNE.hymxJ2CsWWxKfdFVIqZudoqVennR00FiyBH1UGc27rpZmMC28JI8sSpD..
+!
 transceiver qsfp default-mode 4x10G
+!
+service routing protocols model ribd
 !
 hostname pdx-rtr-eos-02
 !
 spanning-tree mode mstp
 !
-no aaa root
-!
-username admin privilege 15 role network-admin secret sha512 $6$gcCAfaAIJVOsUSaH$t8/KbDpR8rZOWuMtjJAneQG79phCbbVtsnfS4wpsQzL4G/tOjWvxJvs83AOUO33dem57xWnDlYg.wlhaMph78/
-!
 vrf instance MGMT
+!
+management api http-commands
+   no shutdown
+   !
+   vrf MGMT
+      no shutdown
 !
 interface Ethernet1
    no switchport
@@ -41,19 +49,15 @@ interface Ethernet8
 !
 interface Management1
    vrf MGMT
-   ip address dhcp
+   ip address 192.168.10.122/24
 !
 ip routing
 no ip routing vrf MGMT
 !
+ip route vrf MGMT 0.0.0.0/0 192.168.10.1
+!
 router ospf 1
    router-id 10.0.0.2
    max-lsa 12000
-!
-management api http-commands
-   no shutdown
-   !
-   vrf MGMT
-      no shutdown
 !
 end
