@@ -47,6 +47,7 @@ interface Ethernet7
 interface Ethernet8
 !
 interface Loopback1
+   description ROUTER
    ip address 10.0.0.1/32
    ip ospf area 0.0.0.0
 !
