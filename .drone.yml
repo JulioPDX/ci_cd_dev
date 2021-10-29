@@ -2,6 +2,9 @@ kind: pipeline
 type: docker
 name: Testing Python CI/CD
 
+environment:
+  MY_SECRET:
+    from_secret: MY_SECRET
 
 steps:
 - name: Black Code Format Check
@@ -16,17 +19,11 @@ steps:
 
 - name: Precheck Configuration Diff
   image: juliopdx/netauto
-  environment:
-    MY_SECRET:
-      from_secret: MY_SECRET
   commands:
   - python build.py
 
 - name: Deploy Configurations
   image: juliopdx/netauto
-  environment:
-    MY_SECRET:
-      from_secret: MY_SECRET
   commands:
   - python build.py
   when:
