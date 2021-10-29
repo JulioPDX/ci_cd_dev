@@ -16,6 +16,9 @@ steps:
 
 - name: Precheck Configuration Diff
   image: juliopdx/netauto
+  environment:
+    MY_SECRET:
+      from_secret: MY_SECRET
   commands:
   - python build.py
 
