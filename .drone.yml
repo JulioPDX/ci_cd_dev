@@ -20,7 +20,7 @@ steps:
     MY_SECRET:
       from_secret: MY_SECRET
   commands:
-  - python build.py --dry_run
+  - python build.py --dry_run True
 
 - name: Deploy Configurations
   image: juliopdx/netauto
