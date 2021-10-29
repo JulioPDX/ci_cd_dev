@@ -13,7 +13,6 @@ parser = argparse.ArgumentParser()
 # If missing then will run on production.
 parser.add_argument("--dry_run", type=bool, help="To be or not to be")
 args = parser.parse_args()
-print(args.dry_run)
 
 
 def deploy_network(task):
