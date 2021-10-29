@@ -59,7 +59,7 @@ def test_undefined_references(snap):
     rprint("[bold green]No undefined refences found!")
 
 
-def init_bf():
+def main():
     """init all the things"""
     NETWORK_NAME = "PDX_NET"
     SNAPSHOT_NAME = "snapshot00"
@@ -76,4 +76,5 @@ def init_bf():
     test_undefined_references(init_snap)
 
 
-init_bf()
+if __name__ == "__main__":
+    main()
