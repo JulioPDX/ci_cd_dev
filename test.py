@@ -49,6 +49,7 @@ def test_bgp_unestablished(snap):
     )
     rprint("[bold green]All BGP sessions are established!")
 
+
 def test_undefined_references(snap):
     """Testing for any undefined references"""
     rprint("[bold yellow]Testing for undefined references")
