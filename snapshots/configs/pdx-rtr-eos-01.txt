@@ -51,6 +51,7 @@ interface Loopback1
    ip ospf area 0.0.0.0
 !
 interface Management1
+   description MGMT
    vrf MGMT
    ip address 192.168.10.121/24
 !
