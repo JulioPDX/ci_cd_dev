@@ -15,48 +15,68 @@ from rich import print as rprint
 
 def test_duplicate_rtr_ids(snap):
     """Testing for duplicate router IDs"""
-    rprint("[bold yellow]Testing for duplicate router IDs")
+    rprint(
+        ":warning: [bold yellow]Testing for duplicate router IDs[/bold yellow] :warning:"
+    )
     assert_no_duplicate_router_ids(
         snapshot=snap,
         protocols={"ospf", "bgp"},
     )
-    rprint("[bold green]No duplicate router IDs found")
+    rprint(
+        ":green_heart: [bold green]No duplicate router IDs found[/bold green] :green_heart:"
+    )
 
 
 def test_bgp_compatibility(snap):
     """Testing for incompatible BGP sessions"""
-    rprint("[bold yellow]Testing for incompatible BGP sessions")
+    rprint(
+        ":warning: [bold yellow]Testing for incompatible BGP sessions[/bold yellow] :warning:"
+    )
     assert_no_incompatible_bgp_sessions(
         snapshot=snap,
     )
-    rprint("[bold green]All BGP sessions compatible!")
+    rprint(
+        ":green_heart: [bold green]All BGP sessions compatible![/bold green] :green_heart:"
+    )
 
 
 def test_ospf_compatibility(snap):
     """Testing for incompatible OSPF sessions"""
-    rprint("[bold yellow]Testing for incompatible OSPF sessions")
+    rprint(
+        ":warning: [bold yellow]Testing for incompatible OSPF sessions[/bold yellow] :warning:"
+    )
     assert_no_incompatible_ospf_sessions(
         snapshot=snap,
     )
-    rprint("[bold green]All OSPF sessions compatible!")
+    rprint(
+        ":green_heart: [bold green]All OSPF sessions compatible![/bold green] :green_heart:"
+    )
 
 
 def test_bgp_unestablished(snap):
     """Testing for BGP sessions that are not established"""
-    rprint("[bold yellow]Testing for unestablished BGP sessions")
+    rprint(
+        ":warning: [bold yellow]Testing for unestablished BGP sessions[/bold yellow] :warning:"
+    )
     assert_no_unestablished_bgp_sessions(
         snapshot=snap,
     )
-    rprint("[bold green]All BGP sessions are established!")
+    rprint(
+        ":green_heart: [bold green]All BGP sessions are established![/bold green] :green_heart:"
+    )
 
 
 def test_undefined_references(snap):
     """Testing for any undefined references"""
-    rprint("[bold yellow]Testing for undefined references")
+    rprint(
+        ":warning: [bold yellow]Testing for undefined references[/bold yellow] :warning:"
+    )
     assert_no_undefined_references(
         snapshot=snap,
     )
-    rprint("[bold green]No undefined refences found!")
+    rprint(
+        ":green_heart: [bold green]No undefined refences found![/bold green] :green_heart:"
+    )
 
 
 def main():
