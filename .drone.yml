@@ -9,10 +9,10 @@ steps:
   commands:
   - black . --check
 
-- name: Precheck OSPF and BGP
+- name: Batfish Prechecks
   image: juliopdx/netauto
   commands:
-  - pytest test.py --disable-pytest-warnings -s
+  - python test.py
 
 - name: Precheck Configuration Diff
   image: juliopdx/netauto
