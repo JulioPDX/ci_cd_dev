@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 """Script used to configure the network"""
 import argparse
 from rich import print as rprint

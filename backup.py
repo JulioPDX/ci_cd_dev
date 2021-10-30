@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 """Simple script used for backups"""
 import os
 import re
