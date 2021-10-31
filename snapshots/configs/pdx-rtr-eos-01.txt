@@ -62,12 +62,12 @@ ip route vrf MGMT 0.0.0.0/0 192.168.10.1
 !
 router bgp 65001
    router-id 10.0.0.1
-   neighbor 10.0.0.4 remote-as 65004
+   neighbor 10.0.0.4 remote-as 65003
    neighbor 10.0.0.4 update-source Loopback1
    neighbor 10.0.0.4 ebgp-multihop 3
 !
 router ospf 1
-   router-id 10.0.0.2
+   router-id 10.0.0.1
    passive-interface Ethernet2
    passive-interface Loopback1
    max-lsa 12000
