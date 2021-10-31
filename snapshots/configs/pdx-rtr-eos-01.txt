@@ -55,8 +55,6 @@ interface Management1
    vrf MGMT
    ip address 192.168.10.121/24
 !
-something fake
-!
 ip routing
 no ip routing vrf MGMT
 !
