@@ -16,7 +16,7 @@ from rich import print as rprint
 def test_duplicate_rtr_ids(snap):
     """Testing for duplicate router IDs"""
     rprint(
-        ":warning: [bold yellow]Testing for duplicate router IDs[/bold yellow] :warning:"
+        ":police_car_light: [bold yellow]Testing for duplicate router IDs[/bold yellow] :police_car_light:"
     )
     assert_no_duplicate_router_ids(
         snapshot=snap,
@@ -30,7 +30,7 @@ def test_duplicate_rtr_ids(snap):
 def test_bgp_compatibility(snap):
     """Testing for incompatible BGP sessions"""
     rprint(
-        ":warning: [bold yellow]Testing for incompatible BGP sessions[/bold yellow] :warning:"
+        ":police_car_light: [bold yellow]Testing for incompatible BGP sessions[/bold yellow] :police_car_light:"
     )
     assert_no_incompatible_bgp_sessions(
         snapshot=snap,
@@ -43,7 +43,7 @@ def test_bgp_compatibility(snap):
 def test_ospf_compatibility(snap):
     """Testing for incompatible OSPF sessions"""
     rprint(
-        ":warning: [bold yellow]Testing for incompatible OSPF sessions[/bold yellow] :warning:"
+        ":police_car_light: [bold yellow]Testing for incompatible OSPF sessions[/bold yellow] :police_car_light:"
     )
     assert_no_incompatible_ospf_sessions(
         snapshot=snap,
@@ -56,7 +56,7 @@ def test_ospf_compatibility(snap):
 def test_bgp_unestablished(snap):
     """Testing for BGP sessions that are not established"""
     rprint(
-        ":warning: [bold yellow]Testing for unestablished BGP sessions[/bold yellow] :warning:"
+        ":police_car_light: [bold yellow]Testing for unestablished BGP sessions[/bold yellow] :police_car_light:"
     )
     assert_no_unestablished_bgp_sessions(
         snapshot=snap,
@@ -69,7 +69,7 @@ def test_bgp_unestablished(snap):
 def test_undefined_references(snap):
     """Testing for any undefined references"""
     rprint(
-        ":warning: [bold yellow]Testing for undefined references[/bold yellow] :warning:"
+        ":police_car_light: [bold yellow]Testing for undefined references[/bold yellow] :police_car_light:"
     )
     assert_no_undefined_references(
         snapshot=snap,
