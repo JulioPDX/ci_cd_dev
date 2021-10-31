@@ -26,7 +26,6 @@ management api http-commands
 interface Ethernet1
    no switchport
    ip address 10.0.12.1/24
-   ip ospf network point-to-point
    ip ospf area 0.0.0.0
 !
 interface Ethernet2
@@ -62,7 +61,7 @@ ip route vrf MGMT 0.0.0.0/0 192.168.10.1
 !
 router bgp 65001
    router-id 10.0.0.1
-   neighbor 10.0.0.4 remote-as 65003
+   neighbor 10.0.0.4 remote-as 65004
    neighbor 10.0.0.4 update-source Loopback1
    neighbor 10.0.0.4 ebgp-multihop 3
 !
