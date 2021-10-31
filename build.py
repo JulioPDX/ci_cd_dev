@@ -10,9 +10,13 @@ from tools import nornir_set_creds
 
 
 parser = argparse.ArgumentParser()
-# Returns True if argument is set.
-# If missing then will run on production.
-parser.add_argument("--dry_run", type=bool, help="To be or not to be")
+parser.add_argument(
+    "--dry_run", dest="deploy", action="store_true", help="Will not run on devices"
+)
+parser.add_argument(
+    "--no_dry_run", dest="deploy", action="store_false", help="Will run on devices"
+)
+parser.set_defaults(deploy=True)
 args = parser.parse_args()
 
 
@@ -22,7 +26,7 @@ def deploy_network(task):
         name=f"Configuring {task.host.name}!",
         task=napalm_configure,
         filename=f"./snapshots/configs/{task.host.name}.txt",
-        dry_run=args.dry_run,
+        dry_run=args.deploy,
         replace=True,
     )
 
