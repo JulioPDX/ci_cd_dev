@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 """Script used to configure the network"""
 import argparse
-from rich import print as rprint
-from rich import inspect
 from nornir import InitNornir
 from nornir_napalm.plugins.tasks import napalm_configure
 from nornir_utils.plugins.functions import print_result
@@ -11,12 +9,12 @@ from tools import nornir_set_creds
 
 parser = argparse.ArgumentParser()
 parser.add_argument(
-    "--dry_run", dest="deploy", action="store_true", help="Will not run on devices"
+    "--dry_run", dest="dry", action="store_true", help="Will not run on devices"
 )
 parser.add_argument(
-    "--no_dry_run", dest="deploy", action="store_false", help="Will run on devices"
+    "--no_dry_run", dest="dry", action="store_false", help="Will run on devices"
 )
-parser.set_defaults(deploy=True)
+parser.set_defaults(dry=True)
 args = parser.parse_args()
 
 

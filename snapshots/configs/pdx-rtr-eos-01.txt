@@ -26,6 +26,7 @@ management api http-commands
 interface Ethernet1
    no switchport
    ip address 10.0.12.1/24
+   ip ospf network point-to-point
    ip ospf area 0.0.0.0
 !
 interface Ethernet2
@@ -64,6 +65,11 @@ router bgp 65001
    neighbor 10.0.0.4 remote-as 65004
    neighbor 10.0.0.4 update-source Loopback1
    neighbor 10.0.0.4 ebgp-multihop 3
+!
+something super fake
+   welcome to the world of tomorrow
+   its over 9000
+   router-id infinity
 !
 router ospf 1
    router-id 10.0.0.1
