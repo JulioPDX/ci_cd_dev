@@ -19,7 +19,7 @@ args = parser.parse_args()
 
 
 def deploy_network(task):
-    """Configures network with NAPALM and retrives backup for comparison"""
+    """Configures network with NAPALM"""
     task1_result = task.run(
         name=f"Configuring {task.host.name}!",
         task=napalm_configure,
