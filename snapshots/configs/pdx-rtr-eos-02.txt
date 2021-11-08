@@ -24,12 +24,14 @@ management api http-commands
       no shutdown
 !
 interface Ethernet1
+   description connection to pdx-rtr-eos-01
    no switchport
    ip address 10.0.12.2/24
    ip ospf network point-to-point
    ip ospf area 0.0.0.0
 !
 interface Ethernet2
+   description connection to pdx-rtr-eos-03
    no switchport
    ip address 10.0.23.2/24
    ip ospf network point-to-point
