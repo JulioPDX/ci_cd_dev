@@ -9,18 +9,26 @@ steps:
   commands:
   - black . --check
 
-- name: Precheck OSPF and BGP
+- name: Batfish Prechecks
   image: juliopdx/netauto
   commands:
-  - pytest test.py --disable-pytest-warnings -s
+  - python test.py
+
+- name: Precheck Configuration Diff
+  image: juliopdx/netauto
+  environment:
+    MY_SECRET:
+      from_secret: MY_SECRET
+  commands:
+  - python build.py --dry_run
 
 - name: Deploy Configurations
   image: juliopdx/netauto
   environment:
-    MY_PASS:
-      from_secret: MY_PASS
+    MY_SECRET:
+      from_secret: MY_SECRET
   commands:
-  - python build.py
+  - python build.py --no_dry_run
   when:
     branch:
     - master

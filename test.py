@@ -3,44 +3,97 @@
 
 from pybatfish.client.commands import *
 from pybatfish.question import load_questions
-from pybatfish.question import bfq
+from pybatfish.client.asserts import (
+    assert_no_duplicate_router_ids,
+    assert_no_incompatible_bgp_sessions,
+    assert_no_incompatible_ospf_sessions,
+    assert_no_unestablished_bgp_sessions,
+    assert_no_undefined_references,
+)
 from rich import print as rprint
 
 
-def test_bgp_status():
-    """Checking BGP status"""
-    rprint(bfq.bgpSessionStatus().answer().frame())
-    assert (
-        bfq.bgpSessionStatus()
-        .answer()
-        .frame()
-        .query("Established_Status != 'ESTABLISHED'")
-        .empty
+def test_duplicate_rtr_ids(snap):
+    """Testing for duplicate router IDs"""
+    rprint(
+        ":white_exclamation_mark: [bold yellow]Testing for duplicate router IDs[/bold yellow] :white_exclamation_mark:"
+    )
+    assert_no_duplicate_router_ids(
+        snapshot=snap,
+        protocols={"ospf", "bgp"},
+    )
+    rprint(
+        ":green_heart: [bold green]No duplicate router IDs found[/bold green] :green_heart:"
     )
 
 
-def test_ospf_status():
-    """Checking OSPF status"""
-    rprint(bfq.ospfSessionCompatibility().answer().frame())
-    assert (
-        bfq.ospfSessionCompatibility()
-        .answer()
-        .frame()
-        .query("Session_Status != 'ESTABLISHED'")
-        .empty
+def test_bgp_compatibility(snap):
+    """Testing for incompatible BGP sessions"""
+    rprint(
+        ":white_exclamation_mark: [bold yellow]Testing for incompatible BGP sessions[/bold yellow] :white_exclamation_mark:"
+    )
+    assert_no_incompatible_bgp_sessions(
+        snapshot=snap,
+    )
+    rprint(
+        ":green_heart: [bold green]All BGP sessions compatible![/bold green] :green_heart:"
     )
 
 
-def init_bf():
+def test_ospf_compatibility(snap):
+    """Testing for incompatible OSPF sessions"""
+    rprint(
+        ":white_exclamation_mark: [bold yellow]Testing for incompatible OSPF sessions[/bold yellow] :white_exclamation_mark:"
+    )
+    assert_no_incompatible_ospf_sessions(
+        snapshot=snap,
+    )
+    rprint(
+        ":green_heart: [bold green]All OSPF sessions compatible![/bold green] :green_heart:"
+    )
+
+
+def test_bgp_unestablished(snap):
+    """Testing for BGP sessions that are not established"""
+    rprint(
+        ":white_exclamation_mark: [bold yellow]Testing for unestablished BGP sessions[/bold yellow] :white_exclamation_mark:"
+    )
+    assert_no_unestablished_bgp_sessions(
+        snapshot=snap,
+    )
+    rprint(
+        ":green_heart: [bold green]All BGP sessions are established![/bold green] :green_heart:"
+    )
+
+
+def test_undefined_references(snap):
+    """Testing for any undefined references"""
+    rprint(
+        ":white_exclamation_mark: [bold yellow]Testing for undefined references[/bold yellow] :white_exclamation_mark:"
+    )
+    assert_no_undefined_references(
+        snapshot=snap,
+    )
+    rprint(
+        ":green_heart: [bold green]No undefined refences found![/bold green] :green_heart:"
+    )
+
+
+def main():
     """init all the things"""
     NETWORK_NAME = "PDX_NET"
     SNAPSHOT_NAME = "snapshot00"
     SNAPSHOT_DIR = "./snapshots"
-
     bf_session.host = "192.168.10.184"
     bf_set_network(NETWORK_NAME)
-    bf_init_snapshot(SNAPSHOT_DIR, name=SNAPSHOT_NAME, overwrite=True)
+    init_snap = bf_init_snapshot(SNAPSHOT_DIR, name=SNAPSHOT_NAME, overwrite=True)
     load_questions()
+    test_duplicate_rtr_ids(init_snap)
+    test_bgp_compatibility(init_snap)
+    test_ospf_compatibility(init_snap)
+    test_bgp_unestablished(init_snap)
+    test_undefined_references(init_snap)
 
 
-init_bf()
+if __name__ == "__main__":
+    main()
