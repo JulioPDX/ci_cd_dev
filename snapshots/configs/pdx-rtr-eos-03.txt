@@ -6,6 +6,7 @@
 no aaa root
 !
 username admin privilege 15 role network-admin secret sha512 $6$pH.laHZuhmfihqj8$gq0Lm3Gihocxlvc6Lg3g.HlcXlCMxy2BV6.SHdxqb5OrSzmui2iPOkhtQZbA6UiA2WUyzemSbI.M4k0ghY522/
+username suzie privilege 15 role network-admin secret sha512 $6$6zV.qw9F48hskMAL$DW01gDlj1MQbpeBfcLvN.wTVt.j1TTuDd1f7c91n6k5TDx41v5QNsdb7GAO9JyTZy4h1r3yA70Gfe8Jb4dBm01
 !
 transceiver qsfp default-mode 4x10G
 !
