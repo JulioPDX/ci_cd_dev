@@ -84,7 +84,7 @@ def main():
     NETWORK_NAME = "PDX_NET"
     SNAPSHOT_NAME = "snapshot00"
     SNAPSHOT_DIR = "./snapshots"
-    bf_session.host = "192.168.10.184"
+    bf_session.host = "192.168.10.193"
     bf_set_network(NETWORK_NAME)
     init_snap = bf_init_snapshot(SNAPSHOT_DIR, name=SNAPSHOT_NAME, overwrite=True)
     load_questions()
