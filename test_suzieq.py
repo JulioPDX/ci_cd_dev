@@ -12,7 +12,7 @@ ospf_df = pd.DataFrame(ospf_tbl().aver())
 ospf_fail = 0
 for index, row in ospf_df.iterrows():
     if row["assert"] != "pass":
-        print("OSPF", row["assertReason"])
+        print(f"[bold yellow]OSPF, {row['assertReason']}[/bold yellow]")
         ospf_fail += 1
 
 # BGP testing
