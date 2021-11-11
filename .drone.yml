@@ -39,7 +39,7 @@ steps:
   privileged: true
   commands:
   - git clone https://github.com/netenglabs/suzieq.git
-  - ls
+  - python test_suzieq.py
   volumes:
   - name: suzieq
     path: /tmp/suz
