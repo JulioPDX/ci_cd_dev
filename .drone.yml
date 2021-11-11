@@ -37,10 +37,10 @@ steps:
 - name: Suzieq Check
   image: juliopdx/netauto
   commands:
-  - ls tmp/
+  - ls
   volumes:
   - name: suzieq
-    path: /tmp/suzie
+    path: /
 
 volumes:
 - name: suzieq
