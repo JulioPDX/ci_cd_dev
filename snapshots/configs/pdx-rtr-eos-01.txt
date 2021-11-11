@@ -64,6 +64,7 @@ ip route vrf MGMT 0.0.0.0/0 192.168.10.1
 !
 router bgp 65001
    router-id 10.0.0.1
+   timers bgp 10 30
    neighbor 10.0.0.4 remote-as 65004
    neighbor 10.0.0.4 update-source Loopback1
    neighbor 10.0.0.4 ebgp-multihop 3
