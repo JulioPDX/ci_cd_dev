@@ -38,7 +38,8 @@ steps:
   image: juliopdx/netauto
   privileged: true
   commands:
-  - pwd /tmp/suz/parquet-out
+  - git clone git@github.com:netenglabs/suzieq.git
+  - ls
   volumes:
   - name: suzieq
     path: /tmp/suz
