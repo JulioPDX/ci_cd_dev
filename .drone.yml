@@ -38,6 +38,7 @@ steps:
   image: juliopdx/netauto
   privileged: true
   commands:
+  - pip install suzieq
   - git clone https://github.com/netenglabs/suzieq.git
   - python test_suzieq.py
   volumes:
