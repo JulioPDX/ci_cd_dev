@@ -39,6 +39,7 @@ steps:
   privileged: true
   commands:
   - python3 -m venv venv
+  - ls
   - source venv/bin/activate
   - pip install suzieq
   - git clone https://github.com/netenglabs/suzieq.git
