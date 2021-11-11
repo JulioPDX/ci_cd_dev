@@ -38,7 +38,7 @@ steps:
   image: juliopdx/netauto
   privileged: true
   commands:
-  - ls /tmp/suz
+  - pwd /tmp/suz
   volumes:
   - name: suzieq
     path: /tmp/suz
