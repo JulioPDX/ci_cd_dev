@@ -38,9 +38,9 @@ steps:
   image: juliopdx/netauto
   privileged: true
   commands:
-  - python3 -m venv venv
+  - python3 -m venv myvenv
   - ls
-  - source ./venv/bin/activate
+  - source myvenv/bin/activate
   - pip install suzieq
   - git clone https://github.com/netenglabs/suzieq.git
   - python test_suzieq.py
