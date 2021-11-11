@@ -1,4 +1,4 @@
-data-directory: /home/juliopdx/parquet-out
+data-directory: /tmp/suz/parquet-out
 service-directory: /home/juliopdx/suzieq/suzieq/config
 schema-directory: /home/juliopdx/suzieq/suzieq/config/schema
 temp-directory: /tmp/suzieq
