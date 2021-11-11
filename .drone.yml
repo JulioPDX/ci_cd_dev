@@ -38,7 +38,7 @@ steps:
   image: juliopdx/netauto
   privileged: true
   commands:
-  - pwd /tmp/suz
+  - pwd /tmp/suz/parquet-out
   volumes:
   - name: suzieq
     path: /tmp/suz
