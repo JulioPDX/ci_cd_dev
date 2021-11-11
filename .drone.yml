@@ -34,6 +34,19 @@ steps:
     - master
     - main
 
+- name: Suzieq Check
+  image: juliopdx/netauto
+  commands:
+  - ls tmp/
+  volumes:
+  - name: suzieq
+    path: /tmp/suzie
+
+volumes:
+- name: suzieq
+  host:
+    path: /home/juliopdx/parquet-out
+
 trigger:
   event:
     exclude:
