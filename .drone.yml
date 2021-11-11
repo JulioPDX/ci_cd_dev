@@ -35,8 +35,8 @@ steps:
     - main
 
 - name: Suzieq Check
-  image: python:3.9
-  privileged: true
+  image: juliopdx/netauto
+  # privileged: true
   commands:
   # - python3 -m venv myvenv
   # - . myvenv/bin/activate
