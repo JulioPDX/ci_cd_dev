@@ -35,12 +35,12 @@ steps:
     - main
 
 - name: Suzieq Check
-  image: juliopdx/netauto
+  image: python:3.8
   # privileged: true
   commands:
   # - python3 -m venv myvenv
   # - . myvenv/bin/activate
-  - pip install suzieq
+  - pip install suzieq rich
   - git clone https://github.com/netenglabs/suzieq.git
   - python test_suzieq.py
   volumes:
