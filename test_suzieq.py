@@ -13,6 +13,7 @@ for row_label, row in ospf_df.iterrows():
     if row["adjState"] != "passive":
         if row["adjState"] != "full":
             print(ospf_tbl().aver())
+            print(ospf_df.to_string())
             sys.exit(1)
         else:
             print(f"{row['hostname']} to {row['peerHostname']} is in state: {row['adjState']}")
