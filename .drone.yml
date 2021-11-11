@@ -38,15 +38,15 @@ steps:
   image: juliopdx/netauto
   privileged: true
   commands:
-  - ls /tmp/suzie
+  - ls /tmp/suz
   volumes:
   - name: suzieq
-    path: /tmp/suzie
+    path: /tmp/suz
 
 volumes:
 - name: suzieq
   host:
-    path: /home/juliopdx/parquet-out
+    path: /home/juliopdx/suz
 
 trigger:
   event:
