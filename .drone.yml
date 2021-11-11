@@ -38,7 +38,7 @@ steps:
   image: juliopdx/netauto
   privileged: true
   commands:
-  - ls /tmp
+  - ls /tmp/suzie
   volumes:
   - name: suzieq
     path: /tmp/suzie
