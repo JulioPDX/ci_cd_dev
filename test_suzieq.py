@@ -3,7 +3,7 @@
 import sys
 import pandas as pd
 from suzieq.sqobjects import get_sqobject
-from rich import print, inspect
+from rich import print
 
 
 # OSPF Testing
