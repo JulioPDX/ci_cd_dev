@@ -13,7 +13,7 @@ ospf_fail = 0
 for index, row in ospf_df.iterrows():
     if row["assert"] != "pass":
         print(
-            f":triangular_flag_on_post: OSPF, {row['assertReason']} :triangular_flag_on_post:"
+            f":triangular_flag_on_post: OSPF, {row['hostname']} {row['ifname']} {row['assertReason']} :triangular_flag_on_post:"
         )
         ospf_fail += 1
 
