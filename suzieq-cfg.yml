@@ -1,0 +1,10 @@
+data-directory: /tmp/suz/parquet-out
+temp-directory: /tmp/suzieq
+logging-level: WARNING
+
+analyzer:
+  # By default, the timezone is set to the local timezone. Uncomment
+  # this line if you want the analyzer (CLI/GUI/REST) to display the time
+  # in a different timezone than the local time. The timestamp stored in
+  # the database is always in UTC.
+  timezone: America/Los_Angeles
