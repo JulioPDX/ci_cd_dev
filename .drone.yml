@@ -38,12 +38,11 @@ steps:
   image: python:3.8
   commands:
   - pip install suzieq rich
-  # - git clone https://github.com/netenglabs/suzieq.git
   - python test_suzieq.py
-  # when:
-  #   branch:
-  #   - master
-  #   - main
+  when:
+    branch:
+    - master
+    - main
   volumes:
   - name: suzieq
     path: /tmp/suz
