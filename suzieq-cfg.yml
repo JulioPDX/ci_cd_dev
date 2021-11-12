@@ -1,6 +1,4 @@
 data-directory: /tmp/suz/parquet-out
-service-directory: /drone/src/suzieq/suzieq/config
-schema-directory: /drone/src/suzieq/suzieq/config/schema
 temp-directory: /tmp/suzieq
 logging-level: WARNING
 
