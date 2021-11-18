@@ -15,7 +15,7 @@ from rich.console import Console
 
 
 console = Console(force_interactive=True)
-
+console.print("192.168.10.1")
 
 def test_duplicate_rtr_ids(snap):
     """Testing for duplicate router IDs"""
