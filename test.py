@@ -14,9 +14,7 @@ from pybatfish.client.asserts import (
 from rich.console import Console
 
 
-console = Console(color_system="standard")
-console.print("192.168.10.1")
-
+console = Console(color_system="truecolor")
 
 def test_duplicate_rtr_ids(snap):
     """Testing for duplicate router IDs"""
