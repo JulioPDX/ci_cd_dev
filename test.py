@@ -14,7 +14,7 @@ from pybatfish.client.asserts import (
 from rich.console import Console
 
 
-console = Console(force_interactive=True)
+console = Console(force_interactive=False)
 console.print("192.168.10.1")
 
 
