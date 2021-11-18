@@ -16,6 +16,26 @@ from rich.console import Console
 
 console = Console(force_interactive=False)
 console.print("192.168.10.1")
+RESET = "\x1b[0m"
+print("To reset attributes: \\x1b[0m\n")
+for i in range(0, 8):
+    print(
+        "\x1b[1;3{0}m\\x1b[1;3{0}m{1} \x1b[0;3{0}m\\x1b[0;3{0}m{1} "
+        "\x1b[1;4{0};3{0}m\\x1b[1;3{0};4{0}m{1}".format(i, RESET)
+    )
+import os, sys
+
+
+def has_colors():
+    if (os.getenv("CLICOLOR", "1") != "0" and sys.stdout.isatty()) or os.getenv(
+        "CLICOLOR_FORCE", "0"
+    ) != "0":
+        return True
+    else:
+        return False
+
+
+print(has_colors())
 
 
 def test_duplicate_rtr_ids(snap):
