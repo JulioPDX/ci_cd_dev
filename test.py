@@ -14,7 +14,7 @@ from pybatfish.client.asserts import (
 from rich.console import Console
 
 
-console = Console(force_interactive=True)
+console = Console(color_system="truecolor")
 
 
 def test_duplicate_rtr_ids(snap):

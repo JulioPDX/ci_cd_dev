@@ -8,7 +8,7 @@ from suzieq.sqobjects import get_sqobject
 from rich.console import Console
 
 
-console = Console(force_interactive=True)
+console = Console(color_system="truecolor")
 
 # OSPF Testing
 ospf_tbl = get_sqobject("ospf")
