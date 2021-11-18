@@ -14,7 +14,7 @@ from pybatfish.client.asserts import (
 from rich.console import Console
 
 
-console = Console(force_interactive=True, color_system="256")
+console = Console(color_system="truecolor")
 console.print("192.168.10.1")
 RESET = "\x1b[0m"
 print("To reset attributes: \\x1b[0m\n")
