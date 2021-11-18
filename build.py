@@ -1,5 +1,7 @@
 #!/usr/bin/env python
+
 """Script used to configure the network"""
+
 import argparse
 from nornir import InitNornir
 from nornir_napalm.plugins.tasks import napalm_configure
