@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+"""Script used to interact with Suzieq Poller"""
+
 import sys
 import pandas as pd
 from suzieq.sqobjects import get_sqobject

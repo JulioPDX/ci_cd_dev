@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+
 """Script used to test the network with batfish"""
 
 from pybatfish.client.commands import *
