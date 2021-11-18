@@ -9,7 +9,7 @@ from rich.console import Console
 
 
 console = Console(force_interactive=True)
-
+console.print("192.168.10.1")
 # OSPF Testing
 ospf_tbl = get_sqobject("ospf")
 ospf_df = pd.DataFrame(ospf_tbl().aver())
