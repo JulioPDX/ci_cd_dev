@@ -1,5 +1,10 @@
-# ci_cd_dev
+# Network CI/CD Pipeline Proof of Concept
 
-[![Build Status](https://juliopdx.ngrok.io/api/badges/JulioPDX/ci_cd_dev/status.svg)](https://juliopdx.ngrok.io/JulioPDX/ci_cd_dev)
+I learend so much building out this POC and I want to thank everyone that has checked out the blog series that references this code base. I hope you brave souls that have started building your own can use some of these tools or concepts in your future deployments. Please check out the blog posts where I go into detail about every phase!
 
-Testing out some CI/CD Concepts
+- [Building a Network CI/CD Pipeline Part 1 - Installing Docker](https://juliopdx.com/2021/10/20/building-a-network-ci-cd-pipeline-part-1/)
+- [Building a Network CI/CD Pipeline Part 2 - Installing Drone Server and Runner](https://juliopdx.com/2021/10/20/building-a-network-ci-cd-pipeline-part-2/)
+- [Building a Network CI/CD Pipeline Part 3 - .drone.yml and Building a Docker Image](https://juliopdx.com/2021/10/20/building-a-network-ci-cd-pipeline-part-3/)
+- [Building a Network CI/CD Pipeline Part 4 - Testing with Batfish](https://juliopdx.com/2021/10/20/building-a-network-ci-cd-pipeline-part-4/)
+- [Building a Network CI/CD Pipeline Part 5 - Deployments with Nornir and NAPALM](https://juliopdx.com/2021/10/20/building-a-network-ci-cd-pipeline-part-5/)
+- [Building a Network CI/CD Pipeline Part 6 - Post Tests with Suzieq](https://juliopdx.com/2021/10/20/building-a-network-ci-cd-pipeline-part-6/)
